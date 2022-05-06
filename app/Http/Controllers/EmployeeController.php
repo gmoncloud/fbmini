@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee
-use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use App\Http\Resources\EmployeeResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -37,7 +36,7 @@ class EmployeeController extends Controller
             'name' => 'required|max:50',
             'age' => 'required|max:50',
             'job' => 'required|max:50',
-            'salaray' => 'required:50'
+            'salary' => 'required:50'
         ]);
 
         if($validator->fails()) {
