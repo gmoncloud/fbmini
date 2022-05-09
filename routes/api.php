@@ -32,7 +32,3 @@ Route::middleware('auth:api')->prefix('v1')->group(function() {
     Route::apiResource('employees', EmployeeController::class);
     Route::apiResource('profiles', ProfileController::class);
 });
-
-//Route::apiResource('/employee', 'EmployeeController')->middleware('auth:api');
-//Route::apiResource('employees', EmployeeController::class)->middleware('auth:api');
-
