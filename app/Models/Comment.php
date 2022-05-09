@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserPost extends Model
+class Comment extends Model
 {
     use HasFactory;
 
@@ -15,16 +15,13 @@ class UserPost extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'post_id',
         'user_id',
-        'written_text',
-        'media_location',
+        'comment_text'
     ];
 
-    /**
-     * Get the postComments for the userPost post.
-     */
-    public function postComments()
+    public function user()
     {
-        return $this->hasMany(PostComment::class);
+        $this->belongsTo(User::class);
     }
 }

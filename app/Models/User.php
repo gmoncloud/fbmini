@@ -43,8 +43,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the profile associated with the user.
+     */
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    /**
+     * Get all the userPosts from the user
+     */
+    public function userPosts()
+    {
+        return $this->hasMany(UserPost::class);
+    }
+
+    /**
+     * Get all the comments from the user
+     */
+    public function comments()
+    {
+        $this->hasOne(Comment::class);
+    }
+
+    /**
+     * Get all the userPosts from the user
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }
