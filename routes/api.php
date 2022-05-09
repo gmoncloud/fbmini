@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\UserAuthsController;
-use \App\Http\Controllers\EmployeeController;
 use \App\Http\Controllers\UserPostController;
 use \App\Http\Controllers\CommentController;
 use \App\Http\Controllers\ProfileController;
@@ -27,8 +26,10 @@ Route::post('/register', [UserAuthsController::class, 'register']);
 Route::post('/login', [UserAuthsController::class, 'login']);
 
 Route::middleware('auth:api')->prefix('v1')->group(function() {
-    Route::apiResource('user_posts', UserPostController::class);
-    Route::apiResource('comments', CommentController::class);
-    Route::apiResource('employees', EmployeeController::class);
-    Route::apiResource('profiles', ProfileController::class);
+    Route::apiResource('user_post', UserPostController::class);
+    Route::apiResource('comment', CommentController::class);
+    Route::apiResource('profile', ProfileController::class);
+
+    Route::post('profile', [ProfileController::class]);
+    Route::get('profile',[ProfileController::class, 'show'])->name('profile');
 });
