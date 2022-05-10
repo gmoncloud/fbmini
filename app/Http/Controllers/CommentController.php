@@ -17,7 +17,6 @@ class CommentController extends Controller
     public function index()
     {
         return CommentResource::collection(Comment::Paginate(15));
-
     }
 
     /**
@@ -28,7 +27,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request)
     {
-        $comment = Comment::create($request->all());
+        $comment = Comment::update($request->all());
         return new CommentResource($comment);
     }
 

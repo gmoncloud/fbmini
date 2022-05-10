@@ -21,10 +21,18 @@ class UserPost extends Model
     ];
 
     /**
-     * Get the postComments for the userPost post.
+     * Get the comments for the userPost post.
      */
-    public function postComments()
+    public function comments()
     {
-        return $this->hasMany(PostComment::class);
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Get the likes for the userPost post.
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 }

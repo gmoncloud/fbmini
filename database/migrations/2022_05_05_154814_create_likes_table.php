@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('post_id')->constrained('user_posts');
             $table->foreignId('user_id')->constrained();
+            $table->boolean('like')->default(0);
             $table->timestamps();
         });
     }
